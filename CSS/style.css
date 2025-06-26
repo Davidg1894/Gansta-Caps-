@@ -1,0 +1,812 @@
+:root{--fuenteprincipal:"Open Sans", sans-serif;
+}
+/* ================================================
+   RESET BÁSICO - Eliminamos márgenes y espacios por defecto
+   ================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+}
+
+/* ================================================
+   ESTILOS GENERALES DEL BODY
+   ================================================ */
+body {
+    font-family: var(--fuenteprincipal);
+    line-height: 1.6; /* Espaciado entre líneas */
+    color: #F2F2F2; /* Color de texto principal */
+    background-color: #F2F2F2; /* Color de fondo de la página */
+}
+
+/* ================================================
+   HEADER PRINCIPAL
+   ================================================ */
+.header {
+    background-color: #0D0B0A; /* Color corporativo negro principal */
+    padding: 1rem 0; /* Espaciado interno arriba y abajo */
+    box-shadow: 0 2px 10px rgba(13, 11, 10, 0.3); /* Sombra sutil */
+    position: fixed; /* Se mantiene fijo en la parte superior */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Se mantiene encima de otros elementos */
+}
+
+/* Contenedor que centra y limita el ancho del header */
+.container {
+    max-width: 1200px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centra horizontalmente */
+    padding: 0 2rem; /* Espaciado interno lateral */
+    display: flex; /* Layout flexbox */
+    justify-content: space-between; /* Separa logo y navegación */
+    align-items: center; /* Centra verticalmente */
+}
+
+/* ================================================
+   SECCIÓN DEL LOGO (lado izquierdo)
+   ================================================ */
+.logo {
+    display: flex; /* Layout flexbox para logo e imagen */
+    align-items: center; /* Centra verticalmente */
+    gap: 10px; /* Espacio entre imagen y texto */
+}
+
+/* Imagen del logo */
+.logo-img {
+    height: 100px; /* Altura fija del logo */
+    width: auto; /* Mantiene proporción */
+}
+
+/* Texto del logo */
+.logo-text {
+    font-size: 1.5rem; /* Tamaño de fuente */
+    font-weight: bold; /* Texto en negrita */
+    color: #F2F2F2; /* Color corporativo blanco/gris claro */
+    text-decoration: none; /* Sin subrayado */
+}
+
+/* ================================================
+   NAVEGACIÓN PRINCIPAL
+   ================================================ */
+.nav-list {
+    display: flex; /* Los elementos se alinean horizontalmente */
+    list-style: none; /* Sin viñetas */
+    gap: 2rem; /* Espacio entre cada botón */
+    align-items: center; /* Centra verticalmente */
+}
+
+.nav-item {
+    position: relative; /* Para efectos de posicionamiento */
+}
+
+/* Estilos de los enlaces de navegación */
+.nav-link {
+    color: #F2F2F2; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: 500; /* Peso de fuente medio */
+    font-size: 1rem; /* Tamaño de fuente */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: all 0.3s ease; /* Transición suave para efectos hover */
+    position: relative; /* Para el efecto de subrayado */
+}
+
+/* Efecto hover en los enlaces */
+.nav-link:hover {
+    background-color: #262220; /* Color corporativo gris oscuro */
+    color: #F2F2F2; /* Mantiene el color del texto */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* ================================================
+   ICONOS DE REDES SOCIALES
+   ================================================ */
+.social-icons {
+    display: flex; /* Los iconos se alinean horizontalmente */
+    gap: 1rem; /* Espacio entre iconos */
+    align-items: center; /* Centra verticalmente */
+}
+
+/* Estilos para los enlaces de redes sociales */
+.social-link {
+    display: inline-flex; /* Flexbox para centrar el icono */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    width: 40px; /* Ancho fijo */
+    height: 40px; /* Altura fija */
+    border-radius: 50%; /* Forma circular */
+    background-color: transparent; /* Fondo transparente inicial */
+    color: #F2F2F2; /* Color de iconos */
+    transition: all 0.3s ease; /* Transición suave */
+    text-decoration: none; /* Sin subrayado */
+    border: 2px solid transparent; /* Borde invisible inicial */
+}
+
+/* Efecto hover general para iconos */
+.social-link:hover {
+    transform: translateY(-2px); /* Efecto de elevación */
+    border: 2px solid #8C8B8B; /* Borde con color corporativo */
+    background-color: rgba(140, 139, 139, 0.1); /* Fondo sutil */
+}
+
+/* Efecto hover específico para Instagram */
+.social-link.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    color: white; /* Texto blanco sobre gradiente */
+    border-color: transparent; /* Sin borde */
+}
+
+/* Efecto hover específico para WhatsApp */
+.social-link.whatsapp:hover {
+    background-color: #25D366; /* Verde oficial de WhatsApp */
+    color: white; /* Texto blanco */
+    border-color: #25D366; /* Borde del mismo color */
+}
+
+/* Iconos SVG dentro de los enlaces */
+.social-link svg {
+    width: 20px; /* Tamaño del icono */
+    height: 20px; /* Tamaño del icono */
+    transition: transform 0.3s ease; /* Transición para rotación */
+}
+
+/* Efecto de rotación al hacer hover */
+.social-link:hover svg {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+}
+
+/* ================================================
+   EFECTO DE SUBRAYADO ANIMADO
+   ================================================ */
+.nav-link::after {
+    content: ''; /* Elemento vacío */
+    position: absolute;
+    width: 0; /* Inicia sin ancho */
+    height: 2px; /* Altura de la línea */
+    bottom: -5px; /* Posición debajo del texto */
+    left: 50%; /* Centrado horizontalmente */
+    background-color: #8C8B8B; /* Color corporativo gris medio */
+    transition: all 0.3s ease; /* Transición suave */
+    transform: translateX(-50%); /* Centra la línea */
+}
+
+/* Al hacer hover, la línea se expande */
+.nav-link:hover::after {
+    width: 100%; /* Se expande al 100% del ancho */
+}
+
+/* ================================================
+   BOTÓN MENÚ HAMBURGUESA (solo móviles)
+   ================================================ */
+.mobile-menu-btn {
+    display: none; /* Oculto por defecto en desktop */
+    flex-direction: column; /* Apila las líneas verticalmente */
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor de mano */
+    padding: 0.5rem; /* Espaciado interno */
+    gap: 4px; /* Espacio entre líneas */
+}
+
+/* Líneas del icono hamburguesa */
+.hamburger-line {
+    width: 25px; /* Ancho de cada línea */
+    height: 3px; /* Altura de cada línea */
+    background-color: #F2F2F2; /* Color de las líneas */
+    transition: all 0.3s ease; /* Transición para animación */
+    border-radius: 3px; /* Bordes redondeados */
+}
+
+/* ================================================
+   ANIMACIÓN DEL BOTÓN HAMBURGUESA AL ACTIVARSE
+   ================================================ */
+/* Primera línea se rota para formar una X */
+.mobile-menu-btn.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+/* Segunda línea se oculta */
+.mobile-menu-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+/* Tercera línea se rota en dirección opuesta */
+.mobile-menu-btn.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* ================================================
+   RESPONSIVE DESIGN - TABLETS Y MÓVILES
+   ================================================ */
+
+/* Para pantallas de tablet y móvil (768px o menos) */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem; /* Reduce el padding lateral */
+    }
+    
+    /* Muestra el botón hamburguesa */
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    /* Navegación se convierte en menú desplegable */
+    .nav {
+        position: absolute; /* Posición absoluta para overlay */
+        top: 100%; /* Justo debajo del header */
+        left: 0;
+        right: 0;
+        background-color: #0D0B0A; /* Mismo color que el header */
+        transform: translateY(-100%); /* Inicialmente oculto arriba */
+        opacity: 0; /* Invisible */
+        visibility: hidden; /* No interactuable */
+        transition: all 0.3s ease; /* Transición suave */
+        border-top: 1px solid #262220; /* Línea separadora */
+    }
+    
+    /* Cuando el menú está activo */
+    .nav.nav-active {
+        transform: translateY(0); /* Se desliza hacia abajo */
+        opacity: 1; /* Visible */
+        visibility: visible; /* Interactuable */
+    }
+    
+    /* Lista de navegación en vertical */
+    .nav-list {
+        flex-direction: column; /* Cambia a columna */
+        gap: 0; /* Sin espacio entre elementos */
+        padding: 1rem 0; /* Espaciado interno */
+    }
+    
+    /* Elementos de navegación ocupan todo el ancho */
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Enlaces de navegación adaptados para móvil */
+    .nav-link {
+        display: block; /* Ocupan todo el ancho */
+        padding: 1rem 2rem; /* Mayor área de toque */
+        border-radius: 0; /* Sin bordes redondeados */
+        border-bottom: 1px solid #262220; /* Línea separadora */
+    }
+    
+    /* Efecto hover simplificado para móvil */
+    .nav-link:hover {
+        background-color: #262220;
+        transform: none; /* Sin efecto de elevación */
+    }
+    
+    /* Iconos de redes sociales en móvil */
+    .social-icons {
+        justify-content: center; /* Centra los iconos */
+        padding: 1rem 0; /* Mayor espacio arriba y abajo */
+        border-bottom: none; /* Sin línea separadora */
+    }
+    
+    .social-link {
+        width: 45px; /* Iconos más grandes en móvil */
+        height: 45px; /* Para facilitar el toque */
+    }
+    
+    .social-link svg {
+        width: 22px; /* Iconos SVG más grandes */
+        height: 22px;
+    }
+}
+
+/* Para móviles pequeños (480px o menos) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.5rem; /* Padding aún menor */
+    }
+    
+    /* Logo más pequeño */
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    /* Enlaces más compactos */
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.8rem 1rem;
+    }
+}
+
+/* Reset universal para eliminar márgenes y paddings por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+/* Configuración general del body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F2F2F2; /* Fondo gris claro corporativo */
+    color: #0D0B0A; /* Texto principal en negro corporativo */
+    padding: 20px; /* Espaciado general de la página */
+    line-height: 1.6; /* Altura de línea para mejor legibilidad */
+}
+
+/* 
+=====================================
+    CONTENEDOR PRINCIPAL DEL CARRUSEL
+=====================================
+*/
+
+/* Sección principal que contiene todo el carrusel */
+.carousel-section {
+    max-width: 1200px; /* Ancho máximo para pantallas grandes */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 40px 20px; /* Espaciado interno vertical y horizontal */
+}
+
+/* 
+=====================================
+      HEADER - TÍTULOS Y SUBTÍTULOS
+=====================================
+*/
+
+/* Contenedor del encabezado */
+.carousel-header {
+    text-align: center; /* Centrado del texto */
+    margin-bottom: 40px; /* Separación con el carrusel */
+}
+
+/* Título principal */
+.carousel-title {
+    font-size: 2.5rem; /* Tamaño grande para impacto visual */
+    color: #0D0B0A; /* Negro corporativo */
+    margin-bottom: 10px; /* Separación con el subtítulo */
+    font-weight: bold; /* Peso de fuente gruesa */
+    text-shadow: 0 2px 4px rgba(13, 11, 10, 0.1); /* Sombra sutil para profundidad */
+}
+
+/* Subtítulo descriptivo */
+.carousel-subtitle {
+    font-size: 1.2rem; /* Tamaño menor que el título */
+    color: #262220; /* Gris oscuro corporativo */
+    font-weight: 300; /* Peso de fuente ligera */
+    opacity: 0.9; /* Ligera transparencia para jerarquía visual */
+}
+
+/* 
+=====================================
+     CONTENEDOR PRINCIPAL DEL CARRUSEL
+=====================================
+*/
+
+/* Wrapper principal del carrusel - define el área visible */
+.carousel {
+    position: relative; /* Para posicionar elementos absolutos internos */
+    width: 100%; /* Ancho completo del contenedor padre */
+    height: 500px; /* Altura fija del carrusel */
+    overflow: hidden; /* Oculta los slides que están fuera del área visible */
+    border-radius: 15px; /* Bordes redondeados elegantes */
+    box-shadow: 0 15px 35px rgba(13, 11, 10, 0.3); /* Sombra profunda para elevación */
+    background-color: #0D0B0A; /* Fondo negro como fallback */
+   
+}
+
+/* 
+=====================================
+       TRACK Y SLIDES DEL CARRUSEL
+=====================================
+*/
+
+/* Contenedor que se mueve horizontalmente - contiene todos los slides */
+.carousel-track {
+    display: flex; /* Layout flex para alinear slides horizontalmente */
+    width: 300%; /* 100% × 3 slides = 300% total */
+    height: 100%; /* Altura completa del carrusel */
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Transición suave con curva personalizada */
+}
+
+/* Cada slide individual */
+.carousel-slide {
+    width: 33.333%; /* 100% ÷ 3 slides = 33.333% cada uno */
+    height: 100%; /* Altura completa del track */
+    position: relative; /* Para posicionar el overlay */
+    flex-shrink: 0; /* Evita que los slides se compriman */
+}
+
+/* Contenedor del contenido de cada slide */
+.slide-content {
+    position: relative; /* Para el overlay absoluto */
+    width: 100%; /* Ancho completo del slide */
+    height: 100%; /* Altura completa del slide */
+}
+
+/* 
+=====================================
+        IMÁGENES DE LOS SLIDES
+=====================================
+*/
+
+/* Estilo para las imágenes principales de cada slide */
+.slide-image {
+    width: 100%; /* Ancho completo del contenedor */
+    height: 100%; /* Altura completa del contenedor */
+    object-fit: cover; /* Mantiene proporción, corta si es necesario */
+    display: block; /* Elimina espacios en línea debajo de la imagen */
+    filter: brightness(0.9) contrast(1.1); /* Ajuste de brillo y contraste por defecto */
+    transition: filter 0.3s ease; /* Transición suave para efectos hover */
+}
+
+/* Efecto hover en las imágenes */
+.carousel-slide:hover .slide-image {
+    filter: brightness(1) contrast(1.2); /* Aumenta brillo y contraste al hacer hover */
+}
+
+/* 
+=====================================
+     OVERLAY - CONTENIDO SOBRE IMAGEN
+=====================================
+*/
+
+/* Capa de contenido que se superpone a la imagen */
+.slide-overlay {
+    position: absolute; /* Posicionado sobre la imagen */
+    bottom: 0; /* Alineado al fondo del slide */
+    left: 0; /* Desde el borde izquierdo */
+    right: 0; /* Hasta el borde derecho */
+    /* Gradiente que va de transparente a negro sólido */
+    background: linear-gradient(
+        transparent, 
+        rgba(13, 11, 10, 0.7) 30%, 
+        rgba(13, 11, 10, 0.9) 70%, 
+        #0D0B0A 100%
+    );
+    color: #F2F2F2; /* Texto en gris claro corporativo */
+    padding: 40px; /* Espaciado interno generoso */
+    text-align: center; /* Centrado del texto */
+}
+
+/* Título del slide */
+.slide-title {
+    font-size: 2rem; /* Tamaño prominente */
+    margin-bottom: 10px; /* Separación con la descripción */
+    font-weight: bold; /* Peso grueso para impacto */
+    color: #F2F2F2; /* Gris claro corporativo */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Sombra fuerte para legibilidad */
+}
+
+/* Descripción del slide */
+.slide-description {
+    font-size: 1.1rem; /* Tamaño mediano */
+    margin-bottom: 20px; /* Separación con el botón */
+    color: #8C8B8B; /* Gris medio corporativo */
+    opacity: 0.95; /* Ligera transparencia */
+}
+
+/* 
+=====================================
+      BOTONES DE ACCIÓN DE SLIDES
+=====================================
+*/
+
+/* Botón principal de cada slide */
+.slide-btn {
+    background: linear-gradient(135deg, #262220, #0D0B0A); /* Gradiente de grises corporativos */
+    color: #F2F2F2; /* Texto gris claro */
+    border: 2px solid #8C8B8B; /* Borde gris medio */
+    padding: 12px 28px; /* Espaciado interno horizontal y vertical */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    border-radius: 30px; /* Bordes muy redondeados (píldora) */
+    cursor: pointer; /* Cursor de mano al pasar sobre él */
+    transition: all 0.4s ease; /* Transición suave para todos los cambios */
+    font-weight: bold; /* Peso de fuente gruesa */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    position: relative; /* Para el pseudo-elemento de brillo */
+    overflow: hidden; /* Oculta el efecto de brillo que sale del botón */
+}
+
+/* Efecto de brillo deslizante */
+.slide-btn::before {
+    content: ''; /* Pseudo-elemento vacío */
+    position: absolute; /* Posicionado sobre el botón */
+    top: 0; /* Desde arriba */
+    left: -100%; /* Comienza fuera del botón por la izquierda */
+    width: 100%; /* Ancho completo del botón */
+    height: 100%; /* Altura completa del botón */
+    background: linear-gradient(90deg, transparent, rgba(242, 242, 242, 0.2), transparent); /* Brillo sutil */
+    transition: left 0.5s; /* Transición del movimiento horizontal */
+}
+
+/* Activar efecto de brillo en hover */
+.slide-btn:hover::before {
+    left: 100%; /* Mueve el brillo fuera del botón por la derecha */
+}
+
+/* Estados del botón */
+.slide-btn:hover {
+    background: linear-gradient(135deg, #8C8B8B, #262220); /* Gradiente invertido */
+    border-color: #F2F2F2; /* Borde más claro */
+    transform: translateY(-3px); /* Elevación en hover */
+    box-shadow: 0 8px 25px rgba(13, 11, 10, 0.4); /* Sombra más pronunciada */
+}
+
+.slide-btn:active {
+    transform: translateY(-1px); /* Ligera elevación al hacer clic */
+}
+
+/* 
+=====================================
+      BOTONES DE NAVEGACIÓN (FLECHAS)
+=====================================
+*/
+
+/* Estilo base para botones de navegación anterior/siguiente */
+.carousel-btn {
+    position: absolute; /* Posicionado sobre el carrusel */
+    top: 50%; /* Centrado verticalmente */
+    transform: translateY(-50%); /* Ajuste fino del centrado vertical */
+    background: rgba(242, 242, 242, 0.9); /* Fondo gris claro semi-transparente */
+    border: 2px solid #8C8B8B; /* Borde gris medio corporativo */
+    width: 50px; /* Ancho fijo */
+    height: 50px; /* Altura fija (círculo perfecto) */
+    border-radius: 50%; /* Forma circular */
+    cursor: pointer; /* Cursor de mano */
+    display: flex; /* Flexbox para centrar el ícono */
+    align-items: center; /* Centrado vertical del ícono */
+    justify-content: center; /* Centrado horizontal del ícono */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+    z-index: 10; /* Asegura que esté sobre otros elementos */
+    box-shadow: 0 4px 15px rgba(13, 11, 10, 0.3); /* Sombra para profundidad */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque de fondo */
+}
+
+/* Estados hover y active de botones de navegación */
+.carousel-btn:hover {
+    background-color: #F2F2F2; /* Fondo completamente opaco */
+    border-color: #262220; /* Borde más oscuro */
+    transform: translateY(-50%) scale(1.15); /* Centrado + escala aumentada */
+    box-shadow: 0 6px 20px rgba(13, 11, 10, 0.4); /* Sombra más pronunciada */
+}
+
+.carousel-btn:active {
+    transform: translateY(-50%) scale(1.05); /* Centrado + escala ligeramente reducida */
+}
+
+/* Posicionamiento específico */
+.carousel-btn-prev {
+    left: 20px; /* Botón anterior a la izquierda */
+}
+
+.carousel-btn-next {
+    right: 20px; /* Botón siguiente a la derecha */
+}
+
+/* Iconos SVG dentro de los botones */
+.carousel-btn svg {
+    color: #0D0B0A; /* Color negro corporativo */
+    transition: color 0.3s ease; /* Transición suave del color */
+}
+
+.carousel-btn:hover svg {
+    color: #262220; /* Color más claro en hover */
+}
+
+/* 
+=====================================
+       INDICADORES DE POSICIÓN
+=====================================
+*/
+
+/* Contenedor de los indicadores (puntos) */
+.carousel-indicators {
+    position: absolute; /* Posicionado sobre el carrusel */
+    bottom: 20px; /* Separación desde el borde inferior */
+    left: 50%; /* Posicionado al 50% desde la izquierda */
+    transform: translateX(-50%); /* Centrado horizontal perfecto */
+    display: flex; /* Layout flex para alinear indicadores */
+    gap: 12px; /* Espacio entre indicadores */
+    z-index: 10; /* Asegura que esté sobre otros elementos */
+}
+
+/* Cada indicador individual */
+.indicator {
+    width: 14px; /* Ancho del círculo */
+    height: 14px; /* Altura del círculo */
+    border-radius: 50%; /* Forma circular */
+    border: 2px solid #F2F2F2; /* Borde gris claro */
+    background-color: rgba(140, 139, 139, 0.5); /* Fondo gris medio semi-transparente */
+    cursor: pointer; /* Cursor de mano */
+    transition: all 0.4s ease; /* Transición suave para todos los cambios */
+    position: relative; /* Para el pseudo-elemento interno */
+}
+
+/* Punto interno del indicador */
+.indicator::after {
+    content: ''; /* Pseudo-elemento vacío */
+    position: absolute; /* Posicionado dentro del indicador */
+    top: 50%; /* Centrado verticalmente */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Centrado perfecto */
+    width: 0; /* Inicialmente sin ancho */
+    height: 0; /* Inicialmente sin altura */
+    background-color: #F2F2F2; /* Color gris claro */
+    border-radius: 50%; /* Forma circular */
+    transition: all 0.4s ease; /* Transición suave */
+}
+
+/* Estado activo del indicador */
+.indicator.active::after {
+    width: 8px; /* Ancho del punto interno */
+    height: 8px; /* Altura del punto interno */
+}
+
+.indicator.active {
+    background-color: #8C8B8B; /* Fondo más oscuro */
+    border-color: #F2F2F2; /* Borde gris claro */
+    transform: scale(1.2); /* Escala aumentada */
+    box-shadow: 0 0 10px rgba(242, 242, 242, 0.5); /* Sombra luminosa */
+}
+
+/* Estado hover del indicador */
+.indicator:hover {
+    background-color: rgba(242, 242, 242, 0.3); /* Fondo semi-transparente */
+    transform: scale(1.1); /* Ligera escala aumentada */
+}
+
+/* ANIMACIÓN DE ENTRADA */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.carousel-section {
+    animation: slideIn 0.8s ease-out;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .carousel {
+        height: 400px;
+        border-radius: 10px;
+    }
+
+    .carousel-title {
+        font-size: 2rem;
+    }
+
+    .slide-title {
+        font-size: 1.5rem;
+    }
+
+    .slide-description {
+        font-size: 1rem;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-btn-prev {
+        left: 15px;
+    }
+
+    .carousel-btn-next {
+        right: 15px;
+    }
+
+    .slide-overlay {
+        padding: 25px;
+    }
+
+    .slide-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .indicator {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .carousel-section {
+        padding: 20px 10px;
+    }
+
+    .carousel {
+        height: 300px;
+        border-radius: 8px;
+    }
+
+    .carousel-title {
+        font-size: 1.5rem;
+    }
+
+    .carousel-subtitle {
+        font-size: 1rem;
+    }
+
+    .slide-title {
+        font-size: 1.2rem;
+    }
+
+    .slide-description {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    .slide-overlay {
+        padding: 20px;
+    }
+
+    .slide-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .carousel-btn-prev {
+        left: 10px;
+    }
+
+    .carousel-btn-next {
+        right: 10px;
+    }
+
+    .carousel-indicators {
+        bottom: 15px;
+        gap: 8px;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* MEJORAS DE ACCESIBILIDAD */
+.carousel-btn:focus,
+.indicator:focus,
+.slide-btn:focus {
+    outline: 2px solid #8C8B8B;
+    outline-offset: 2px;
+}
+
+/* ANIMACIÓN SUAVE PARA EL CONTENIDO DEL SLIDE */
+.carousel-slide.active .slide-overlay {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* EFECTO DE HOVER PARA EL CARRUSEL COMPLETO */
+.carousel:hover {
+    box-shadow: 0 20px 40px rgba(13, 11, 10, 0.4);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
