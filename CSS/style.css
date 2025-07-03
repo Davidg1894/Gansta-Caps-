@@ -810,3 +810,28 @@ body {
     transform: translateY(-2px);
     transition: all 0.3s ease;
 }
+.Galeria { 
+   display: grid;  
+   grid-template-columns: repeat(3,1fr);
+   gap: 10px;
+
+}
+img { 
+   max-width: 100%; 
+}
+h2{
+text-align: center;
+font-size: 40px;    
+}
+.Galeria__img {
+border-radius: 10px;
+border: 2px solid #0D0D0D ;
+transition: transform 0.3s ease;
+}
+.Galeria__img:hover {
+    transform: scale(1.1);
+}
+
+.Galeriatitle{
+ margin-bottom: 22px;
+}
